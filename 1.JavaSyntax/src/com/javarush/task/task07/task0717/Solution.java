@@ -11,14 +11,24 @@ import java.util.ArrayList;
 public class Solution {
     public static void main(String[] args) throws Exception {
         // Считать строки с консоли и объявить ArrayList list тут
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        ArrayList<String> list = new ArrayList<>();
 
+        for (int i = 0; i < 10; i++) {
+            list.add(reader.readLine());
+        }
         ArrayList<String> result = doubleValues(list);
 
-        // Вывести на экран result
+        for (String str : result){
+            System.out.println(str);
+        }
     }
 
     public static ArrayList<String> doubleValues(ArrayList<String> list) {
-        //напишите тут ваш код
-        return null;
+        int resultSize = list.size() * 2;
+        for (int i = 0; i < resultSize; i++) {
+            list.add(i + 1, list.get(i++));
+        }
+        return list;
     }
 }
